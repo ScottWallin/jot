@@ -7,27 +7,35 @@ function _saveNotepads() {
 }
 
 class NotepadsService {
-  createNotepad(formData) {
-    let newNotepad = new Notepad(formData)
-    appState.notepads.push(newNotepad)
+  createNotepad(noteData) {
+    const newNote = new Notepad(noteData)
+    // appState.notepads.push(newNotepad)
+    appState.notepads = [...appState.notepads, newNote]
+    appState.activeNotepad = newNote
     _saveNotepads()
-    appState.activeNotepad = newNotepad
-    appState.emit('cases')
+    appState.emit('notepads')
   }
 
   saveNotepad(noteBody) {
     let activeNotepad = appState.activeNotepad
     // @ts-ignore
     activeNotepad.noteBody = noteBody
+    activeNotepad.updatedTime = new Date()
     appState.emit('activeNotepad')
     _saveNotepads
 
   }
-  setActive(notepadId) {
-    let foundNotepad = appState.notepads.find(n => n.id == notepadId)
-    console.log(notepadId);
+  setActive(id) {
+    const foundNotepad = appState.notepads.find(n => n.id == id)
+    console.log('this is active', id);
     // @ts-ignore
     appState.activeNotepad = foundNotepad
+  }
+  removeNotepad(id) {
+    let filteredArray = appState.notepads.filter(n => n.id != id)
+    appState.notepads = filteredArray
+    saveState('notepads', appState.notepads)
+    appState.activeNotepad = null
   }
 
 }

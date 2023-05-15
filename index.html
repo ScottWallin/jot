@@ -27,39 +27,93 @@
 
   <main class="container-fluid">
     <div class="row">
-      <div class="col-12">
-        <div class="row justify-content-evenly">
-          <div class="col-md-10 d-flex" id="notepads">
-            <div class="row">
-              <div class="col-6">
-                <!-- Notes list template-->
-                <ul>
-                  <!-- <h1>Note Title</h1>
-                  <p>Note Body </p>
-                  <p>User</p>
-                  <p>Date</p> -->
-                </ul>
+      <div class="col-2">
+        <div class="d-flex text-center align-items-center justify-content-center">
+          <i class="mdi mdi-notebook-plus text-light fs-3 fw-bold border border-1 border-white rounded btn"
+            type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop"
+            title="Your Notepads"></i>
+        </div>
+        <div class="text-light">
+          <h1 class="ms-3">Jot a new note!</h1>
+          <!-- <div class="row"> -->
+          <div class="form-floating ms-3">
+            <form onsubmit="app.notepadsController.createNotepad()">
+              <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class=" w-100 form-control" id="name" name="name" required>
               </div>
-            </div>
-            <!-- Active note template -->
-            <div class="col-md-6 d-flex justify-content-evenly pb-2" id="activeNote">
-              <!-- <h2>Note Title</h2>
-              <p>User</p>
-              <p>Date</p>
-              <textarea class="w-50" name="noteBody" id="noteBody" cols="30"
-                rows="10">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam voluptatibus.</textarea> -->
+              <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="w-100 form-control" id="title" required minlength="3" maxlength="20"
+                  name="title">
+              </div>
+              <div class="mb-3">
+                <label for="color" class="form-label">Color</label>
+                <input type="color" class=" w-100 form-control" id="color" name="color" value="#000000">
+              </div>
+              <button type="submit" class="btn btn-success mt-3  ms-3">Start Writing <i
+                  class="mdi mdi-fountain-pen-tip"></i></button>
+            </form>
+          </div>
+          <!-- </div> -->
+        </div>
+      </div>
+      <div class="col-10">
+        <div id="active-notepad" class="row justify-content-center">
+          <!-- SECTION Active note template -->
+          <!-- <div class="col-md-8 d-flex justify-content-evenly pb-2">
+        <div class="row justify-content-center" id="activeNote">
+          <div class="col-8 bg-secondary border border-3 border-danger">
+            <div class="row">
+              <div class="col-4 text-bold">
+                <div class=" p-1 fs-3 fw-bold">title</div>
+                <div class="p-1">User</div>
+                <div class="p-1">Updated: </div>
+                <div class="p-1">Created: </div>
+              </div>
+              <textarea class="col-8" name="" id="" cols="30" rows="25"
+                onblur="app.notepadsController.saveNote()">Body</textarea>
             </div>
           </div>
         </div>
+      </div> -->
+        </div>
       </div>
     </div>
-
   </main>
   <footer class="bg-dark text-light">
     <div class="text-center no-select">
       <p><small>Made with 💖 & ☕️ by Scoot</small></p>
     </div>
   </footer>
+  <!-- SECTION offcanvas attempt for organization help -->
+  <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop"
+    aria-labelledby="staticBackdropLabel">
+    <div class="offcanvas-header">
+      <h4 class="offcanvas-title" id="staticBackdropLabel">Total Notepads: <span id="total-notepads">0</span></h4>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <!-- SECTION Notes list template-->
+    <div class="offcanvas-body container-fluid">
+      <div class="row justify-content-evenly" id="notepads">
+        <!-- <div class="col-md-10 d-flex bg-secondary rounded elevation-1 m-1">
+          <div class="row">
+            <div class="col-12 selectable" onclick="app.notepadsController.setActive('id')">
+              <div class="row justify-content-evenly p-2 text-center">
+                <div style="color: XXXX" class="col-12">Title</div>
+                <div class="col-12">Date & Time</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-1 text-center text-danger fs-1 fw-strong m-2 p-1">
+          <button class="btn bten danger"><i class="mdi mdi-trash-can-outline"
+            onclick="app.notepadsController.removeNotepad('this note')"></i></button>
+          </div> -->
+      </div>
+    </div>
+  </div>
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"

@@ -8,11 +8,13 @@ class AppState extends EventEmitter {
   // /** @type {import('./Models/Value').Value[]} */
   // values = loadState('values', [Value])
   /** @type {import('./Models/Notepads').Notepad[]} */
+  notepads = []
 
-
-  /** @type {import('./Models/Notepads').Notepad|null} */
   notepads = loadState('notepads', [Notepad])
-  activeNotepad = null
+
+  activeNotepad = {}
+  // /** @type {import('./Models/Notepads').Notepad|null} */
+
   // notepads = [
   //   new Notepad({
   //     title: "I want to take a break to read, but I forgot my book.",
