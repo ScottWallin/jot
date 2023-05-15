@@ -18,9 +18,10 @@
 <body class="bg-dark">
   <header class="container-fluid">
     <div class="row p-3">
-      <div class="col-12 text-light">
+      <div class="col-10 text-light">
         <h1>JOT! <i class="mdi mdi-notebook-outline"></i></h1>
       </div>
+      <button class="col-2 btn btn-success" onclick="app.userController.enterUserName()">Login</button>
     </div>
   </header>
 
@@ -44,14 +45,14 @@
               </div>
               <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" class="w-100 form-control" id="title" required minlength="3" maxlength="20"
+                <input type="text" class="w-100 form-control" id="title" required minlength="3" maxlength="15"
                   name="title">
               </div>
               <div class="mb-3">
                 <label for="color" class="form-label">Color</label>
                 <input type="color" class=" w-100 form-control" id="color" name="color" value="#000000">
               </div>
-              <button type="submit" class="btn btn-success mt-3  ms-3">Start Writing <i
+              <button id="createNotepadButton" type="submit" class="btn btn-success mt-3  ms-3">Start Writing <i
                   class="mdi mdi-fountain-pen-tip"></i></button>
             </form>
           </div>

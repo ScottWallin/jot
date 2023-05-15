@@ -7,11 +7,11 @@ import { Pop } from "../Utils/Pop.js";
 function _drawNotepads() {
   console.log('these are my notes')
   let notepads = appState.notepads
-  // let length = appState.notepads.length
+  let length = appState.notepads.length
   let template = ''
   notepads.forEach(note => template += note.notesTemplate)
   setHTML('notepads', template)
-  // setText('total-notepads', length)
+  setText('total-notepads', length)
 }
 
 function _drawActiveNotepad() {
@@ -36,8 +36,9 @@ export class NotepadsController {
   }
 
   saveNotepad() {
-    let newContent = document.querySelector('.noteBody')
-    notepadsService.saveNotepad(newContent.value)
+    let note = document.getElementById('noteBody')
+    let noteBody = note.value
+    notepadsService.saveNotepad(noteBody)
   }
 
   createNotepad() {
@@ -48,7 +49,8 @@ export class NotepadsController {
     // noteData.user = appState.user
     notepadsService.createNotepad(notepadData)
     form.reset()
-    // document.querySelector('.notepadBody').focus()
+    form.userName = appState.userName
+    form.name = appState.userName
 
   }
 

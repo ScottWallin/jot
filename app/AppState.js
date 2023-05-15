@@ -8,12 +8,14 @@ class AppState extends EventEmitter {
   // /** @type {import('./Models/Value').Value[]} */
   // values = loadState('values', [Value])
   /** @type {import('./Models/Notepads').Notepad[]} */
-  notepads = []
+  // notepads = []
 
   notepads = loadState('notepads', [Notepad])
 
-  activeNotepad = {}
-  // /** @type {import('./Models/Notepads').Notepad|null} */
+  /** @type {import('./Models/Notepads').Notepad|null} */
+  activeNotepad = null
+
+  userName = ''
 
   // notepads = [
   //   new Notepad({

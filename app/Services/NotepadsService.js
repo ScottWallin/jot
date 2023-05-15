@@ -11,18 +11,18 @@ class NotepadsService {
     const newNote = new Notepad(noteData)
     // appState.notepads.push(newNotepad)
     appState.notepads = [...appState.notepads, newNote]
-    appState.activeNotepad = newNote
     _saveNotepads()
+    appState.activeNotepad = newNote
     appState.emit('notepads')
   }
 
-  saveNotepad(noteBody) {
+  saveNotepad(newBody) {
     let activeNotepad = appState.activeNotepad
     // @ts-ignore
-    activeNotepad.noteBody = noteBody
+    activeNotepad.noteBody = newBody
     activeNotepad.updatedTime = new Date()
     appState.emit('activeNotepad')
-    _saveNotepads
+    _saveNotepads()
 
   }
   setActive(id) {
@@ -35,7 +35,7 @@ class NotepadsService {
     let filteredArray = appState.notepads.filter(n => n.id != id)
     appState.notepads = filteredArray
     saveState('notepads', appState.notepads)
-    appState.activeNotepad = null
+    appState.activeNotepad = ''
   }
 
 }
