@@ -35,9 +35,9 @@ export class Notepad {
   }
   get ActiveTemplate() {
     return `              
-      <div class="col-8 d-flex justify-content-evenly pb-2">
+      <div class="col-12 d-flex justify-content-evenly pb-2">
         <div class="row">
-          <div class="col-3 bg-secondary border rounded text-bold">
+          <div class="col-4 bg-secondary border rounded text-bold">
                 <div style="color: ${this.color}" class=" p-1 fs-3 fw-bold">${this.title}</div>
                 <div class="p-1">${this.name}</div>
                 <div class="p-1">Updated: ${_computeDate(this.updatedTime)}</div>
