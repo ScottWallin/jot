@@ -9,11 +9,14 @@ body {
   flex-direction: column;
   min-height: 100vh;
   background-color: $body-bg;
+  background-image: url(https://images.unsplash.com/photo-1577382975604-7592ea8a8a3d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3803&q=80);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+
 }
 
 main {
   flex-grow: 1;
 }
-
-
-
